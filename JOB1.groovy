@@ -1,4 +1,4 @@
-CRON_DOCKER_TAG='master_0bc8a1d23b8__STABLE'
+CRON_DOCKER_TAG='master_0bc8a1d23b8__NIGHT'
 
 properties([
     parameters([
