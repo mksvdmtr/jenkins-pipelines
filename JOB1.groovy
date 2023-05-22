@@ -45,10 +45,10 @@ pipeline {
     }
 
     stages {
-        when {
-            expression { !params.CRON_DOCKER_TAG_APPLY_ONLY }
-        }
         stage('Hello') {
+            when {
+                expression { !params.CRON_DOCKER_TAG_APPLY_ONLY }
+            }
             steps {
                 script {
                     if (!(currentBuild.getBuildCauses()[0].toString().contains('ParameterizedTimerTriggerCause'))) {
