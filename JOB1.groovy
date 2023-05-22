@@ -53,7 +53,6 @@ pipeline {
                 script {
                     if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')) {
                         message('Cron Docker tag applied')
-                        sh "exit 0"
                     }
                 }
             }
