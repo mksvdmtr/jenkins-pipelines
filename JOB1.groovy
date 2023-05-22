@@ -67,7 +67,7 @@ pipeline {
         success {
             script {
 	        if (!params.CRON_DOCKER_TAG_APPLY_ONLY) {
-		    sh 'POST SCRIPT'
+		    sh('echo POSTSCRIPT')
 		}
                 if (!(currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause'))) {
                     build('JOB2')    
