@@ -52,7 +52,8 @@ pipeline {
             steps {
                 script {
                     if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')) {
-                        currentBuild.result = hudson.model.Result.SUCCESS.toString()
+                        currentBuild.result = 'ABORTED'
+
                     }
                 }
             }
