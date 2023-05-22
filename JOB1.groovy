@@ -1,5 +1,7 @@
 CRON_DOCKER_TAG='master_0bc8a1d23b8__LTS'
 
+import hudson.model.Result
+
 properties([
     parameters([
         choice(
@@ -52,7 +54,6 @@ pipeline {
             steps {
                 script {
                     if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')) {
-                        import hudson.model.Result
                         currentBuild.build().getExecutor().interrupt(Result.SUCCESS)
                     }
                 }
