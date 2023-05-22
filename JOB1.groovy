@@ -47,8 +47,7 @@ pipeline {
     stages {
         stage('Hello') {
             allOf {
-	        expression {"${params.ACTION}" == 'pipelines-cleaner'}
-                expression { !params.CRON_DOCKER_TAG_APPLY_ONLY }
+	        expression { "${params.ACTION}" == 'pipelines-cleaner' && !params.CRON_DOCKER_TAG_APPLY_ONLY }
             }
             steps {
                 script {
