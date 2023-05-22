@@ -29,6 +29,11 @@ properties([
             description: 'Ветка с конфигурацией',
             trim: true
         ),
+         booleanParam(
+            name: 'CRON_DOCKER_TAG_APPLY_ONLY',
+            defaultValue: false,
+            description: 'Применить новый Docker tag'
+        )
     ])
 ])
 
@@ -36,7 +41,7 @@ pipeline {
     agent any
     
     triggers {
-        parameterizedCron("* * * * * %STAND_NAME=DC1;ACTION=pipelines-cleaner;DOCKER_TAG=${CRON_DOCKER_TAG}")
+        parameterizedCron("*/3 * * * * %STAND_NAME=DC1;ACTION=pipelines-cleaner;DOCKER_TAG=${CRON_DOCKER_TAG}")
     }
 
     stages {
