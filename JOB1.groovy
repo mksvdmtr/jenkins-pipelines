@@ -52,7 +52,7 @@ pipeline {
             steps {
                 script {
                     if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')) {
-                        log.info('Cron Docker tag applied')
+                        sh('echo "Cron Docker tag applied"')
                     }
                 }
             }
