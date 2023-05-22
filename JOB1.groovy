@@ -52,7 +52,7 @@ pipeline {
             steps {
                 script {
                     if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')) {
-                        currentBuild.build().getExecutor().interrupt()
+                        currentBuild.result = hudson.model.Result.SUCCESS.toString()
                     }
                 }
             }
