@@ -45,18 +45,8 @@ pipeline {
     }
 
     stages {
-        stage('Cron Docker tag apply'){
-            when {
-                expression { params.CRON_DOCKER_TAG_APPLY_ONLY }
-            }
-            steps {
-                script {
-                    if (currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')) {
-                        currentBuild.result = 'ABORTED'
-
-                    }
-                }
-            }
+        when {
+            expression { !params.CRON_DOCKER_TAG_APPLY_ONLY }
         }
         stage('Hello') {
             steps {
