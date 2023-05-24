@@ -20,7 +20,7 @@ properties([
         ),
         string(
             name: 'DOCKER_TAG',
-            defaultValue: 'master_c9ecef82703__STABLE2',
+            defaultValue: 'master_c9ecef82703__STABLE3',
             description: 'Необходимо ввести DOCKER TAG, собранного релиза, который ранее устанавливался на DEV стенды'
         ),
         string(
