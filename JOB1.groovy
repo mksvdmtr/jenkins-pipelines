@@ -1,3 +1,5 @@
+CRON_DOCKER_TAG='my-test-tag'
+
 properties([
     parameters([
         choice(
@@ -18,7 +20,7 @@ properties([
         ),
         string(
             name: 'DOCKER_TAG',
-            defaultValue: 'master_c9ecef82703__STABLE3',
+            defaultValue: '',
             description: 'Необходимо ввести DOCKER TAG, собранного релиза, который ранее устанавливался на DEV стенды'
         ),
         string(
@@ -39,7 +41,7 @@ pipeline {
     agent any
     
     triggers {
-        parameterizedCron("*/3 * * * * %STAND_NAME=DC1;ACTION=pipelines-cleaner")
+        parameterizedCron("*/3 * * * * %STAND_NAME=DC1;ACTION=pipelines-cleaner;DOCKER_TAG=${CRON_DOCKER_TAG}")
     }
 
     stages {
@@ -68,7 +70,7 @@ pipeline {
 		    sh('echo POSTSCRIPT')
 		}
                 if (!(currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause'))) {
-                    build(job: 'JOB2', parameters: [string(name: 'DOCKER_TAG', value: 'ASDASDASDA')])    
+                    build(job: 'JOB2', parameters: [string(name: "DOCKER_TAG", value: "${params.DOCKER_TAG}")])    
                 }
             }
         }
