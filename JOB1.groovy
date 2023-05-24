@@ -1,5 +1,3 @@
-CRON_DOCKER_TAG='master_0bc8a1d23b8__LTS'
-
 properties([
     parameters([
         choice(
@@ -70,7 +68,7 @@ pipeline {
 		    sh('echo POSTSCRIPT')
 		}
                 if (!(currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause'))) {
-                    build('JOB2')    
+                    build('JOB2', parameters: [ string(name: 'DOCKER_TAG' , value: 'XAXAXAXAX') ])    
                 }
             }
         }
