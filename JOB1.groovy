@@ -20,7 +20,7 @@ properties([
         ),
         string(
             name: 'DOCKER_TAG',
-            defaultValue: 'latest',
+            defaultValue: 'master_c9ecef82703__STABLE',
             description: 'Необходимо ввести DOCKER TAG, собранного релиза, который ранее устанавливался на DEV стенды'
         ),
         string(
@@ -41,7 +41,7 @@ pipeline {
     agent any
     
     triggers {
-        parameterizedCron("*/3 * * * * %STAND_NAME=DC1;ACTION=pipelines-cleaner;DOCKER_TAG=${CRON_DOCKER_TAG}")
+        parameterizedCron("*/3 * * * * %STAND_NAME=DC1;ACTION=pipelines-cleaner")
     }
 
     stages {
