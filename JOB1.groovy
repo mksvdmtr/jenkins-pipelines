@@ -1,4 +1,4 @@
-CRON_DOCKER_TAG='my-test-tag'
+CRON_DOCKER_TAG='bla-bal-tag'
 
 properties([
     parameters([
