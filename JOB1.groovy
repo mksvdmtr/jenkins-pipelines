@@ -68,7 +68,7 @@ pipeline {
 		    sh('echo POSTSCRIPT')
 		}
                 if (!(currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause'))) {
-                    build('JOB2', parameters: [string(name: 'DOCKER_TAG', value: 'ASDASDASDA')])    
+                    build(job: 'JOB2', parameters: [string(name: 'DOCKER_TAG', value: 'ASDASDASDA')])    
                 }
             }
         }
