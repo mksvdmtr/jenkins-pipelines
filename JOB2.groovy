@@ -15,8 +15,8 @@ pipeline {
             stage('Hello') {
                 steps {
                     script {
-                        upstream = currentBuild.getCause('hudson.model.Cause.UpstreamCause.class')
-                        echo "${upstream}"
+                        upstreamcause = upStreamBuild.getCause(hudson.model.Cause.UpstreamCause.class)
+                        echo "${upstreamcause}"
                         // if (currentBuild.getBuildCauses('hudson.model.Cause$UpstreamCause')) {
                         //     echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
                         // } else {
