@@ -15,14 +15,12 @@ pipeline {
             stage('Hello') {
                 steps {
                     script {
-                        echo "${currentBuild.getBuildCauses()[0].shortDescription}"
-                        echo "${currentBuild.getBuildCauses()[0].toString()}"
-                        // if (currentBuild.getBuildCauses('hudson.model.Cause$UpstreamCause')) {
-                        //     echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
-                        // } else {
-                        //     echo "Triggered by something else"
+                        if (currentBuild.getBuildCauses()[0].toString().contains('BuildUpstreamCause')}) { 
+                            echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
+                        } else {
+                            echo "Triggered by something else"
 
-                        // }
+                        }
                 }
             }
         }
