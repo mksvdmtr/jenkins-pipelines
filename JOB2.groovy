@@ -15,7 +15,7 @@ pipeline {
             stage('Hello') {
                 steps {
                     script {
-                        if triggeredBy(cause: 'UpstreamCause', detail: 'JOB1') {
+                        if (triggeredBy(cause: 'UpstreamCause', detail: 'JOB1')) {
                             echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
                         } else {
                             echo "Triggered by something else"
