@@ -15,7 +15,8 @@ pipeline {
             stage('Hello') {
                 steps {
                     script {
-                        if (currentBuild.getBuildCauses()[0].toString().contains('BuildUpstreamCause')) { 
+                        if (triggeredBy "UpstreamCause") {
+                        //if (currentBuild.getBuildCauses()[0].toString().contains('BuildUpstreamCause')) { 
                             echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
                         } else {
                             echo "Triggered by something else"
