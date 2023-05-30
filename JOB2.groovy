@@ -15,8 +15,9 @@ pipeline {
             stage('Hello') {
                 steps {
                     script {
-                        if (buildCause._class ==~ /.+BuildUpstreamCause/) {
-                        // if (currentBuild.getBuildCauses()[0].toString().contains('BuildUpstreamCause')) { 
+                        def causes = currentBuild.getBuildCauses()
+                        echo "${causes}"
+                        if (currentBuild.getBuildCauses()[0].toString().contains('BuildUpstreamCause')) { 
                             echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
                         } else {
                             echo "Triggered by something else"
