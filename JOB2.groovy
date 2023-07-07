@@ -22,9 +22,10 @@ pipeline {
                             echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
                         } else {
                             echo "Triggered by something else"
-                            echo "USER: ${env.BUILD_USER}"
-
+                            wrap([$class: 'BuildUser']) {
+                                echo "USER: ${env.BUILD_USER}"    
                         }
+                    }
                 }
             }
         }
