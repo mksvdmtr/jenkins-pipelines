@@ -34,5 +34,7 @@ pipeline {
                     script {
                         echo "USER: ${build_user}"
                     }
+                }
+            }
         }
 }
