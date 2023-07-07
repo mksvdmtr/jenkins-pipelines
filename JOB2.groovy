@@ -20,6 +20,7 @@ pipeline {
                         if (currentBuild.getBuildCauses('org.jenkinsci.plugins.workflow.support.steps.build.BuildUpstreamCause')) {
                         // if (currentBuild.getBuildCauses()[0].toString().contains('BuildUpstreamCause')) { 
                             echo "Hello World From JOB2 - DOCKER_TAG: ${params.DOCKER_TAG}"
+                            echo "USER: ${env.BUILD_USER}"
                         } else {
                             echo "Triggered by something else"
 
