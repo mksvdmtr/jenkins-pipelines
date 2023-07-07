@@ -18,9 +18,9 @@ pipeline {
                             wrap([$class: 'BuildUser']) {
                                 build_user = "${env.BUILD_USER}"
                             }
-                       }
                     }
                 }
+            }
             stage('s1') {
                 steps {
                     script {
