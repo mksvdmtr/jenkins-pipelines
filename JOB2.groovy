@@ -12,7 +12,7 @@ pipeline {
     agent any
 
         stages {
-            stage('Hello') {
+            stage('env') {
                 steps {
                     script {
                             wrap([$class: 'BuildUser']) {
@@ -21,7 +21,7 @@ pipeline {
                        }
                     }
                 }
-            stage('Hello2') {
+            stage('s1') {
                 steps {
                     script {
                         echo "USER: `${build_user}`"
