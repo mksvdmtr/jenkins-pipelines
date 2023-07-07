@@ -32,7 +32,7 @@ pipeline {
             stage('Hello2') {
                 steps {
                     script {
-                        echo "USER: ${build_user}"
+                        echo "USER: `${build_user}`"
                     }
                 }
             }
