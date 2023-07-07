@@ -23,7 +23,7 @@ pipeline {
                         } else {
                             echo "Triggered by something else"
                             wrap([$class: 'BuildUser']) {
-                                def build_user = "${env.BUILD_USER}"
+                                build_user = "${env.BUILD_USER}"
                             }
                        }
                     }
