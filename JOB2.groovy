@@ -16,7 +16,7 @@ pipeline {
                 steps {
                     script {
                             wrap([$class: 'BuildUser']) {
-                                build_user = "${env.BUILD_USER}"
+                                build_user2 = "${env.BUILD_USER}"
                             }
                     }
                 }
@@ -24,7 +24,7 @@ pipeline {
             stage('s1') {
                 steps {
                     script {
-                        echo "USER: `${build_user}`"
+                        echo "USER: `${build_user2}`"
                     }
                 }
             }
@@ -37,7 +37,7 @@ pipeline {
 
         always {
             script {
-                echo "USER: `${build_user}`"
+                echo "USER: `${build_user2}`"
             }
         }
     }
