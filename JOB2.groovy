@@ -29,4 +29,16 @@ pipeline {
                 }
             }
         }
+
+    post {
+        cleanup {
+            cleanWs()
+        }
+
+        always {
+            script {
+                echo "USER: `${build_user}`"
+            }
+        }
+    }
 }
