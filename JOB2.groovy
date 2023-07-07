@@ -23,11 +23,16 @@ pipeline {
                         } else {
                             echo "Triggered by something else"
                             wrap([$class: 'BuildUser']) {
-                                echo "USER: ${env.BUILD_USER}"    
-                        }
+                                def build_user = "${env.BUILD_USER}"
+                            }
+                       }
                     }
                 }
             }
+            stage('Hello2') {
+                steps {
+                    script {
+                        echo "USER: ${build_user}"
+                    }
         }
-    }
 }
